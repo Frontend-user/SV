@@ -6,7 +6,7 @@
 
 from django.db import models
 
-
+#ads
 class User(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
