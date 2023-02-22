@@ -6,7 +6,8 @@
 
 from django.db import models
 
-#ads
+
+# ads
 class User(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -15,17 +16,16 @@ class User(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
 
 
-class Message(models.Model):
-    user_sender = models.ForeignKey(to='User', on_delete=models.PROTECT)
-    user_receiver = models.ForeignKey(to='User', on_delete=models.PROTECT)
-    text = models.CharField(max_length=200)
-    created_date = models.DateTimeField(auto_now_add=True)
+# class Message(models.Model):
+#     user_sender = models.ForeignKey(to='User', on_delete=models.PROTECT)
+#     user_receiver = models.ForeignKey(to='User', on_delete=models.PROTECT)
+#     text = models.CharField(max_length=200)
+#     created_date = models.DateTimeField(auto_now_add=True)
 
 class WallPost(models.Model):
     text = models.CharField(max_length=500)
     user = models.ForeignKey(to='User', on_delete=models.PROTECT)
     created_date = models.DateTimeField(auto_now_add=True)
 
-class Friend(models.Model):
-    friends = models.ManyToManyField('self')
-    
+# class Friend(models.Model):
+#     friends = models.ManyToManyField('self')
