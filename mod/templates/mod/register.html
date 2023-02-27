@@ -1,0 +1,24 @@
+<form action="/auth/register/" method="post">
+
+    <label for="name">Name<br>
+        <input type="text" name="name">
+    </label>
+{% csrf_token %}
+<br><br>
+    <label for="name">Last Name  <br>
+        <input type="text">
+    </label>
+<br><br>
+    <label for="name">Password  <br>
+        <input type="password">
+    </label>
+<br><br>
+    <label for="name">Mail  <br>
+        <input type="mail">
+    </label>
+
+    <br>
+    <br>
+    <br>
+    <input  type="submit" style="width: 100px; height: 30px; background-color: green;">
+</form>

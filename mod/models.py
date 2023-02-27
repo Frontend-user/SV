@@ -1,10 +1,8 @@
-# from django.db import models
+from django.db import models
 #
 # class Person(models.Model):
 #     first_name = models.CharField(max_length=30)
 #     last_name = models.CharField(max_length=30)
-
-from django.db import models
 
 
 # ads
@@ -24,7 +22,7 @@ class User(models.Model):
 
 class WallPost(models.Model):
     text = models.CharField(max_length=500)
-    user = models.ForeignKey(to='User', on_delete=models.PROTECT)
+    user = models.ForeignKey(to='User', on_delete  =  models.PROTECT)
     created_date = models.DateTimeField(auto_now_add=True)
 
 # class Friend(models.Model):
