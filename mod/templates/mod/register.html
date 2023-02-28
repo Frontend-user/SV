@@ -1,20 +1,30 @@
 <form action="/auth/register/" method="post">
-
+{% if password_error %}
+    <h1 class = 'a'> {{password_error}}</h1>
+{% endif %}
+{% if same_email %}
+    <h1 style="color: red;"> {{same_email}}</h1>
+{% endif %}
+<style> .a {color: red;transition: all 1s ease-out; }</style>
     <label for="name">Name<br>
         <input type="text" name="name">
     </label>
 {% csrf_token %}
 <br><br>
     <label for="name">Last Name  <br>
-        <input type="text">
+        <input type="text" name="family_name">
     </label>
 <br><br>
     <label for="name">Password  <br>
-        <input type="password">
+        <input type="password" name="password">
+    </label>
+<br><br>
+    <label for="name">Password Confirm  <br>
+        <input type="password" name="password2">
     </label>
 <br><br>
     <label for="name">Mail  <br>
-        <input type="mail">
+        <input type="email" name="email">
     </label>
 
     <br>

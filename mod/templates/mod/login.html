@@ -1,0 +1,18 @@
+<form action="/auth/login/" method="post">
+    {% if mail_error %}
+    <h1 style="color: red; transition: all 2s ease-out;"> {{mail_error}}</h1>
+{% endif %}
+    {% csrf_token %}
+    <label for="name">Mail  <br>
+        <input type="email" name="email">
+    </label>
+  <br><br>
+    <label for="name">Password  <br>
+        <input type="password" name="password">
+    </label>
+<br><br>
+
+
+
+    <input  type="submit" style="width: 100px; height: 30px; background-color: green;">
+</form>
