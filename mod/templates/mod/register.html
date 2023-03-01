@@ -2,17 +2,20 @@
 {% if password_error %}
     <h1 class = 'a'> {{password_error}}</h1>
 {% endif %}
+{% if form_errors %}
+    <h1 class = 'a'> {{form_errors}}</h1>
+{% endif %}
 {% if same_email %}
     <h1 style="color: red;"> {{same_email}}</h1>
 {% endif %}
 <style> .a {color: red;transition: all 1s ease-out; }</style>
     <label for="name">Name<br>
-        <input type="text" name="name">
+        <input type="text" name="first_name">
     </label>
 {% csrf_token %}
 <br><br>
     <label for="name">Last Name  <br>
-        <input type="text" name="family_name">
+        <input type="text" name="last_name">
     </label>
 <br><br>
     <label for="name">Password  <br>
