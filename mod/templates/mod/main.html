@@ -4,13 +4,18 @@
     <li><a href="/auth/logout/">Выход</a></li>
     <li><a href="/auth/friends/">Друзья</a></li>
 {% endblock %}
+
 {% block content %}
+
+
+
+
     {% if password_error %}
         <h1 class='a'> {{ password_error }}</h1>
     {% endif %}
-    <div>ИМЯ: {{ user.first_name }}</div>
+    <div class="asd">ИМЯ: {{ user.first_name }}</div>
 
-    <div>Фамилия: {{ user.last_name }}</div>
+    <div class="sss">Фамилия: {{ user.last_name }}</div>
 
     <div>ЕМАЙЛ: {{ user.email }}</div>
 
@@ -19,11 +24,11 @@
     {% endif %}
 
     <form action="/auth/main/" method="post">
-        <label for=""><h1 style="color: aqua">Напишите титл</h1>
+        <label for=""><h1 style="color: #2f2727">Напишите титл</h1>
             <input style="width: 200px; height: 30px; opacity: 0.2; background-color: grey; " type="text" name="title">
         </label>
         <br>
-        <label for='wallpost'><h1 style="color: aqua">Напишите текст</h1>
+        <label for='wallpost'><h1 style="color: #1d3a3a">Напишите текст</h1>
 
             <input style="width: 400px; height: 200px; opacity: 0.2; background-color: grey; " type="text" name="text">
         </label>
@@ -49,6 +54,15 @@
             <div style="width: 30px; height: 20px; background-color: red; cursor: pointer">DEL</div>
         </a>
     {% endfor %}
+
+
+
+
+
+
+
+
+
 {% endblock %}
 
 

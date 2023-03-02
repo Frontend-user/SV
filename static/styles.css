@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+#app_body{
+    padding-top: 20px;
+    background: -webkit-linear-gradient(0deg, #efbdda, #a4d1fe);
+    background: linear-gradient(0deg, #efbdda, #a4d1fe);
+
+}
+
+.main {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+
+}
+
+.label {
+    margin-left: 10px;
+}
+
+.all {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+.reg {
+    margin-top: 10px;
+
+}
+
+.reg a {
+    margin-left: 400px;
+    text-decoration: none;
+    color: yellow;
+    cursor: pointer;
+    background-color: red;
+    border-radius: 30px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.reg a:hover {
+    color: red;
+    background-color: yellow;
+    transition: 0.5s ease-in;
+}
+
+.submit {
+    margin-left: 40px;
+    outline: none;
+    width: 100px;
+    height: 30px;
+    background-color: #6de16d;
+    cursor: pointer;
+    font-weight: 600;
+    border: #093d09 1px solid;
+    color: #efe0e0;
+}
+
+.submit:hover {
+    background-color: #b3a81f;
+    transition: 0.5s ease-in-out;
+}
+
+.login {
+    /*margin-top: 200px;*/
+    margin-left: 400px;
+    margin-bottom: 20px;
+}
+
+.span_log {
+    margin-left: 60px;
+    color: aqua;
+    font-weight: 600;
+}
+
+.span_password {
+    margin-left: 60px;
+    font-weight: 600;
+    color: aqua;
+}

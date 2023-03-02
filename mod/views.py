@@ -49,10 +49,11 @@ def login(request):
                 return redirect('main')
             else:
                 return render(request, "mod/login.html", context={'email_error': 'НЕВЕРНЫЙ  EMAIL  ИЛИ ПАРОЛЬ'})
-    elif request.method == 'GET':
+        else:
+            return render(request, "mod/login.html", context={'form_errors': form.errors})
 
+    elif request.method == 'GET':
         return render(request, "mod/login.html")
-    # return render(request, "mod/login.html")
 
 
 def index(request):
