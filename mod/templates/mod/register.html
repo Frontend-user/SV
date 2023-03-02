@@ -1,37 +1,47 @@
-<form action="/auth/register/" method="post">
-{% if password_error %}
-    <h1 class = 'a'> {{password_error}}</h1>
-{% endif %}
-{% if form_errors %}
-    <h1 class = 'a'> {{form_errors}}</h1>
-{% endif %}
-{% if same_email %}
-    <h1 style="color: red;"> {{same_email}}</h1>
-{% endif %}
-<style> .a {color: red;transition: all 1s ease-out; }</style>
-    <label for="name">Name<br>
-        <input type="text" name="first_name">
-    </label>
-{% csrf_token %}
-<br><br>
-    <label for="name">Last Name  <br>
-        <input type="text" name="last_name">
-    </label>
-<br><br>
-    <label for="name">Password  <br>
-        <input type="password" name="password">
-    </label>
-<br><br>
-    <label for="name">Password Confirm  <br>
-        <input type="password" name="password2">
-    </label>
-<br><br>
-    <label for="name">Mail  <br>
-        <input type="email" name="email">
-    </label>
+{% extends "base.html" %}
+<title>{% block title %}Регистрация{% endblock %}</title>
+{% block nav %}
+    <li><a href="/auth/login/">Логин</a></li>
+{% endblock %}
+{% block content %}
+    <form action="/auth/register/" method="post">
+        {% if password_error %}
+            <h1 class='a'> {{ password_error }}</h1>
+        {% endif %}
+        {% if form_errors %}
+            <h1 class='a'> {{ form_errors }}</h1>
+        {% endif %}
+        {% if same_email %}
+            <h1 style="color: red;"> {{ same_email }}</h1>
+        {% endif %}
+        <style> .a {
+            color: red;
+            transition: all 1s ease-out;
+        }</style>
+        <label for="name">Name<br>
+            <input type="text" name="first_name">
+        </label>
+        {% csrf_token %}
+        <br><br>
+        <label for="name">Last Name <br>
+            <input type="text" name="last_name">
+        </label>
+        <br><br>
+        <label for="name">Password <br>
+            <input type="password" name="password">
+        </label>
+        <br><br>
+        <label for="name">Password Confirm <br>
+            <input type="password" name="password2">
+        </label>
+        <br><br>
+        <label for="name">Mail <br>
+            <input type="email" name="email">
+        </label>
 
-    <br>
-    <br>
-    <br>
-    <input  type="submit" style="width: 100px; height: 30px; background-color: green;">
-</form>
+        <br>
+        <br>
+        <br>
+        <input type="submit" style="width: 100px; height: 30px; background-color: green;">
+    </form>
+{% endblock %}

@@ -50,10 +50,10 @@ class User(AbstractBaseUser):
         verbose_name = 'user'
         verbose_name_plural = 'users'
 
-    # def users_dict(self) -> dict:
-    #     return {
-    #         'id': self.email,
-    #     }
+    def users_dict(self) -> dict:
+        return {
+            'id': self.email,
+        }
 
 
 

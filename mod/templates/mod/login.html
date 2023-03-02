@@ -1,18 +1,23 @@
-<form action="/auth/login/" method="post">
-    {% if email_error %}
-    <h1 style="color: red; transition: all 2s ease-out;"> {{email_error}}</h1>
-{% endif %}
-    {% csrf_token %}
-    <label for="name">EMail  <br>
-        <input type="email" name="email">
-    </label>
-  <br><br>
-    <label for="name">Password  <br>
-        <input type="password" name="password">
-    </label>
-<br><br>
+{% extends "base.html" %}
+<title>{% block title %}Логин{% endblock %}</title>
+{% block nav %}
+    <li><a href="/auth/register/">Регистрация</a></li>
+{% endblock %}
+{% block content %}
+    <form action="/auth/login/" method="post">
+        {% if email_error %}
+            <h1 style="color: red; transition: all 2s ease-out;"> {{ email_error }}</h1>
+        {% endif %}
+        {% csrf_token %}
+        <label for="name">EMail <br>
+            <input type="email" name="email">
+        </label>
+        <br><br>
+        <label for="name">Password <br>
+            <input type="password" name="password">
+        </label>
+        <br><br>
 
 
-
-    <input  type="submit" style="width: 100px; height: 30px; background-color: green;">
-</form>
+        <input type="submit" style="width: 100px; height: 30px; background-color: green;">
+    </form>{% endblock %}

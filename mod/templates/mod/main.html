@@ -1,44 +1,54 @@
-<a href="/auth/logout/"><h1>Выход</h1></a>
-{% if password_error %}
-    <h1 class = 'a'> {{password_error}}</h1>
-{% endif %}
-<div>ИМЯ: {{  user.first_name}}</div>
+{% extends "base.html" %}
+{% block title %}MAIN{% endblock %}
+{% block nav %}
+    <li><a href="/auth/logout/">Выход</a></li>
+    <li><a href="/auth/friends/">Друзья</a></li>
+{% endblock %}
+{% block content %}
+    {% if password_error %}
+        <h1 class='a'> {{ password_error }}</h1>
+    {% endif %}
+    <div>ИМЯ: {{ user.first_name }}</div>
 
-<div>Фамилия: {{ user.last_name }}</div>
+    <div>Фамилия: {{ user.last_name }}</div>
 
-<div>ЕМАЙЛ: {{ user.email }}</div>
-{#<a href="/auth/wall_see/">Написать пост</a>#}
-{#<form action="/auth/wall_see/" method="post">#}
+    <div>ЕМАЙЛ: {{ user.email }}</div>
 
-  {% if err %}
-    <p style="color: red;"> {{err}}</p>
-{% endif %}
+    {% if err %}
+        <p style="color: red;"> {{ err }}</p>
+    {% endif %}
 
-<form action="/auth/main/" method="post">
-    <label for=""><h1  style="color: aqua">Напишите титл</h1>
-        <input style="width: 200px; height: 30px; opacity: 0.2; background-color: grey; " type="text"  name="title">
-    </label>
+    <form action="/auth/main/" method="post">
+        <label for=""><h1 style="color: aqua">Напишите титл</h1>
+            <input style="width: 200px; height: 30px; opacity: 0.2; background-color: grey; " type="text" name="title">
+        </label>
+        <br>
+        <label for='wallpost'><h1 style="color: aqua">Напишите текст</h1>
+
+            <input style="width: 400px; height: 200px; opacity: 0.2; background-color: grey; " type="text" name="text">
+        </label>
+        <br><br>
+        <label for="s">
+            <input type="submit" style="width: 100px; height: 30px; background-color: green;">
+        </label>
+        {% csrf_token %}
+    </form>
     <br>
-<label for='wallpost'><h1 style="color: aqua">Напишите текст</h1>
+    <br>
 
-        <input style="width: 400px; height: 200px; opacity: 0.2; background-color: grey; " type="text"  name="text">
-    </label>
-    <br><br>
-    <label for="s">
-    <input   type="submit" style="width: 100px; height: 30px; background-color: green;">
-      </label >
-       {% csrf_token %}
-</form>
-<br>
-<br>
+    <a href="/auth/users/"><h1>users</h1></a>
+    {% for s in users %}
+        <h1> {{ s.id }}</h1>
+    {% endfor %}
 
-{#<a href="/auth/users/"><h1>users</h1></a>#}
-
-{% for o in posts %}
-    <h3>{{  o.title }}</h3>
-    <p>{{  o.text }}</p>
-    <a style="text-decoration: none; color: #fff;" href="/auth/wall_post/delete/{{o.id}}/"><div style="width: 30px; height: 20px; background-color: red; cursor: pointer">DEL</div></a>
-{% endfor %}
-
+    {% csrf_token %}
+    {% for o in posts %}
+        <h3>{{ o.title }}</h3>
+        <p>{{ o.text }}</p>
+        <a style="text-decoration: none; color: #fff;" href="/auth/wall_post/delete/{{ o.id }}/">
+            <div style="width: 30px; height: 20px; background-color: red; cursor: pointer">DEL</div>
+        </a>
+    {% endfor %}
+{% endblock %}
 
 

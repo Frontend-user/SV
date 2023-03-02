@@ -10,7 +10,8 @@ urlpatterns = [
     path('auth/login/', views.login, name="login"),
     path('auth/main/', views.main, name="main"),
     path('auth/logout/', views.logout_view, name="logout"),
-    path('auth/wall_post/delete/<int:wall_post_id>/', views.post_del, name="post_delete")
-    # path('/auth/users/', views.users, name='users')
+    path('auth/wall_post/delete/<int:wall_post_id>/', views.post_del, name="post_delete"),
+    path('auth/users/', views.users, name='users'),
+    path('auth/friends/', views.friends, name='friends')
 
 ]

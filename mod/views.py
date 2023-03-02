@@ -76,9 +76,19 @@ def main(request):
         pass
 
     all_posts = WallPost.objects.filter(user_id=request.user.id)
-    return render(request, 'mod/main.html', {'posts': [p.dict() for p in all_posts]})
+    all_users = User.objects.filter().exclude(id=request.user.id)
+    return render(request, 'mod/main.html',
+                  {'posts': [p.dict() for p in all_posts], 'users': [s.users_dict() for s in all_users]})
 
 
 def post_del(request, wall_post_id):
     WallPost.objects.filter(id=wall_post_id).first().delete()
     return redirect('main')
+
+
+def users(request):
+    return redirect('main')
+
+def friends(request):
+    # return render(request, '/auth/friends/')
+    return render(request, 'mod/friends.html')
