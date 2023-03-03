@@ -14,6 +14,7 @@ urlpatterns = [
     path('auth/wall_post/delete/<int:wall_post_id>/', views.post_del, name="post_delete"),
 
     path('users/list/', views.users_list, name='users_list'),
-    path('users/friend_add/<int:friend_id>/', views.friend_add, name='friend_add')
+    path('users/friend_add/<int:friend_id>/', views.friend_add, name='friend_add'),
+    path('users/friend_delete/<int:friend_id>/', views.friend_delete, name='friend_delete')
 
 ]

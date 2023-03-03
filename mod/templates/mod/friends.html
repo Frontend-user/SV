@@ -18,6 +18,7 @@
     <h1>Друзья</h1>
     {% for s in friends %}
         <h1> {{ s.email }}</h1>
+        <a href="/users/friend_delete/{{ s.id }}/">Удалить из друзей</a>
     {% endfor %}
 
 {% endblock %}

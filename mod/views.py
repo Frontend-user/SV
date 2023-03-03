@@ -105,4 +105,15 @@ def friend_add(request, friend_id):
     user.friends.add(friend_to_add)
     return redirect('users_list')
 
+def friend_delete(request, friend_id):
+    friend_to_delete = User.objects.filter(id=friend_id).first()
+    user = User.objects.filter(id=request.user.id).first()
+
+    if not friend_to_delete:
+        return redirect('users_list')
+    user.friends.remove(friend_to_delete)
+    friend_to_delete.friends.remove(user)
+
+    return redirect('users_list')
+
 
