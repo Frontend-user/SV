@@ -30,6 +30,7 @@ class UserManager(BaseUserManager):
         return user
 
 # ads
+
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True)
     first_name = models.CharField('Фамилия', max_length=255, blank=True, null=True)
@@ -37,6 +38,7 @@ class User(AbstractBaseUser):
     created_date = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
+    friends = models.ManyToManyField('self')
 
     objects = UserManager()
 

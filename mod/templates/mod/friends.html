@@ -1,9 +1,23 @@
 {% extends "base.html" %}
-<title>{% block title %}Друзья{% endblock %}</title><!doctype html>
+
+{% block title %}<title>Друзья</title>{% endblock %}
+
 {% block nav %}
     <li><a href="/auth/logout/">Выход</a></li>
     <li><a href="/auth/main/">Моя страница</a></li>
 {% endblock %}
+
+
 {% block content %}
+    <h1>users</h1>
+    {% for s in users %}
+        <h1> {{ s.email }}</h1>
+        <a href="/users/friend_add/{{ s.id }}/">Добавить в друзья</a>
+    {% endfor %}
+
+    <h1>Друзья</h1>
+    {% for s in friends %}
+        <h1> {{ s.email }}</h1>
+    {% endfor %}
 
 {% endblock %}

@@ -2,8 +2,7 @@
 
 #app_body{
     padding-top: 20px;
-    background: -webkit-linear-gradient(0deg, #efbdda, #a4d1fe);
-    background: linear-gradient(0deg, #efbdda, #a4d1fe);
+
 
 }
 
@@ -82,4 +81,10 @@ body {
     margin-left: 60px;
     font-weight: 600;
     color: aqua;
+}
+
+.add_friend {
+    padding: 10px;
+    background-color: green;
+    color: red;
 }

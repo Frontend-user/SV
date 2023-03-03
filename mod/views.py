@@ -77,9 +77,9 @@ def main(request):
         pass
 
     all_posts = WallPost.objects.filter(user_id=request.user.id)
-    all_users = User.objects.filter().exclude(id=request.user.id)
+
     return render(request, 'mod/main.html',
-                  {'posts': [p.dict() for p in all_posts], 'users': [s.users_dict() for s in all_users]})
+                  {'posts': [p.dict() for p in all_posts] })
 
 
 def post_del(request, wall_post_id):
@@ -87,9 +87,22 @@ def post_del(request, wall_post_id):
     return redirect('main')
 
 
-def users(request):
-    return redirect('main')
+def users_list(request):
+    if request.method == 'GET':
+        users = User.objects.filter().exclude(id=request.user.id)
+        user = User.objects.filter(id=request.user.id).first()
+        friends = users.filter(id__in=user.friends.all().values('id'))
+        users = users.exclude(id__in=user.friends.all().values('id'))
+        return render(request, 'mod/friends.html', {'users': users,
+                                                    'friends': friends} )
 
-def friends(request):
-    # return render(request, '/auth/friends/')
-    return render(request, 'mod/friends.html')
+def friend_add(request, friend_id):
+    friend_to_add = User.objects.filter(id=friend_id).first()
+    user = User.objects.filter(id=request.user.id).first()
+
+    if not friend_to_add:
+        return redirect('users_list')
+    user.friends.add(friend_to_add)
+    return redirect('users_list')
+
+

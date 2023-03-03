@@ -2,7 +2,7 @@
 {% block title %}MAIN{% endblock %}
 {% block nav %}
     <li><a href="/auth/logout/">Выход</a></li>
-    <li><a href="/auth/friends/">Друзья</a></li>
+    <li><a href="/users/list/">Поиск пользователей</a></li>
 {% endblock %}
 
 {% block content %}
@@ -40,11 +40,6 @@
     </form>
     <br>
     <br>
-
-    <a href="/auth/users/"><h1>users</h1></a>
-    {% for s in users %}
-        <h1> {{ s.id }}</h1>
-    {% endfor %}
 
     {% csrf_token %}
     {% for o in posts %}
